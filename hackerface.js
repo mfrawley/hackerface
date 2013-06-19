@@ -13,12 +13,16 @@ var hackerFace = {
     console.log(names);
     for(var i=0; i < names.length; i++) { 
       var p = document.createElement('p');
+      var br = document.createElement('br');
       var img = document.createElement('img');
       var name = names[i].innerHTML
       img.src = this.constructAvatarURL(name);
-      console.log(img.src)
+      
       p.innerHTML = name;
+      p.appendChild(br)
       p.appendChild(img)
+
+      
       names[i].innerHTML = '';
       names[i].appendChild(p);
       

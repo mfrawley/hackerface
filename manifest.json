@@ -3,10 +3,16 @@
   "name": "HackerFace",
   "description": "Hacker faces",
   "version": "2.0",
-
-  "permissions": [
-    "https://news.ycombinator.com/"
-  ],
+  "content_scripts": [
+     {
+       "matches": ["https://news.ycombinator.com/item*"],
+       //"css": ["mystyles.css"],
+       "js": ["hackerface.js"]
+     }
+   ],
+  // "permissions": [
+  //   "https://news.ycombinator.com/"
+  // ],
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
