@@ -29,6 +29,34 @@ var hackerFace = {
     }
   },
 
+  getThumbUrl: function(url) {
+    return 'http://www.bitpixels.com/getthumbnail?code=58666&url='+url+'&size=50';
+  },
+  
+  showWebThumbs: function() {
+    console.log('showWebThumbs')
+    var titles = document.querySelectorAll('.comhead');
+    console.log(titles);
+    for(var i=0; i < titles.length; i++) {
+      var el = titles[i];
+      var title = el.innerHTML.replace(' (', '').replace(') ', '');
+      var url = hackerFace.getThumbUrl(title);
+      var a = document.createElement('a');
+      //a.href = 'http://'+title;
+      var img = document.createElement('img');
+      a.appendChild(img);
+      
+      var td = document.createElement('td');
+      img.src= url;
+      
+      td.appendChild(a);
+      // var firstChild = el.parentNode.parentNode.firstChild.nextSibling.nextSibling;
+      var parent = el.parentNode.parentNode;
+      // parent.insertBefore(td, firstChild);
+      parent.appendChild(td);
+//      console.log(url);
+    }
+  },
   /**
    * Given a photo, construct a URL using the method outlined at
    * http://www.flickr.com/services/api/misc.urlKittenl
@@ -41,4 +69,10 @@ var hackerFace = {
     return "http://avatars.io/twitter/"+name;
   }
 };
-hackerFace.showPhotos();
+console.log( window.location.pathname )
+if(window.location.pathname == '/') {
+  hackerFace.showWebThumbs();
+} else {
+  hackerFace.showPhotos();  
+}
+

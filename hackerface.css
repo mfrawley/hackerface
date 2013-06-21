@@ -1,0 +1,10 @@
+.title {
+	vertical-align: top;
+}
+td center a img {
+	vertical-align: top;
+	display:none;
+}
+tr {
+	margin-top: 5px;
+}
